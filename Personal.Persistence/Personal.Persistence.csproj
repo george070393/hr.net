@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IHrContext.cs" />
     <Compile Include="InMemoryDbAsyncEnumerable.cs" />
     <Compile Include="InMemoryDbAsyncEnumerator.cs" />
     <Compile Include="InMemoryDbAsyncQueryProvider.cs" />
@@ -57,6 +58,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Personal.Entities\Personal.Entities.csproj">
+      <Project>{FBD9FE6D-E72F-4CCF-B562-C7AC15E153AA}</Project>
+      <Name>Personal.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
