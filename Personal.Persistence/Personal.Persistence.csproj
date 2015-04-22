@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InMemoryDbAsyncEnumerable.cs" />
+    <Compile Include="InMemoryDbAsyncEnumerator.cs" />
+    <Compile Include="InMemoryDbAsyncQueryProvider.cs" />
+    <Compile Include="InMemoryDbSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
