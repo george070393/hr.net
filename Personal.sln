@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Entities", "Person
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Persistence", "Personal.Persistence\Personal.Persistence.csproj", "{55757273-26C2-4EF9-8EFE-DB71D6CF740A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal.Tests", "Personal.Tests\Personal.Tests.csproj", "{3943DF69-6324-4AEA-81AC-3786F85A66AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{55757273-26C2-4EF9-8EFE-DB71D6CF740A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55757273-26C2-4EF9-8EFE-DB71D6CF740A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55757273-26C2-4EF9-8EFE-DB71D6CF740A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3943DF69-6324-4AEA-81AC-3786F85A66AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3943DF69-6324-4AEA-81AC-3786F85A66AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3943DF69-6324-4AEA-81AC-3786F85A66AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3943DF69-6324-4AEA-81AC-3786F85A66AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
