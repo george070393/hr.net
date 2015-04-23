@@ -53,6 +53,7 @@
     <Compile Include="InMemoryDbAsyncEnumerator.cs" />
     <Compile Include="InMemoryDbAsyncQueryProvider.cs" />
     <Compile Include="InMemoryDbSet.cs" />
+    <Compile Include="InMemoryHrContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
