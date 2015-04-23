@@ -2,9 +2,9 @@
 {
     public class Job
     {
-        string JobId { get; set; }
-        string JobTitle { get; set; }
-        int MinSalary { get; set; }
-        int MaxSalary { get; set; }
+        public string JobId { get; set; }
+        public string JobTitle { get; set; }
+        public int MinSalary { get; set; }
+        public int MaxSalary { get; set; }
     }
 }
