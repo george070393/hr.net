@@ -3,7 +3,7 @@ using Personal.Entities;
 
 namespace Personal.Persistence
 {
-    interface IHrContext
+    public interface IHrContext
     {
         DbSet<Job> Jobs { get; }
         DbSet<Location> Locations { get; }
