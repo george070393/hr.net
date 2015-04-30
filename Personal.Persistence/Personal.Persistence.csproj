@@ -54,6 +54,10 @@
     <Compile Include="InMemoryDbAsyncQueryProvider.cs" />
     <Compile Include="InMemoryDbSet.cs" />
     <Compile Include="InMemoryHrContext.cs" />
+    <Compile Include="InMemoryEmployeeSet.cs" />
+    <Compile Include="InMemoryDepartmentSet.cs" />
+    <Compile Include="InMemoryLocationSet.cs" />
+    <Compile Include="InMemoryJobsSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
