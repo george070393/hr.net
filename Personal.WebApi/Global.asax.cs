@@ -17,7 +17,7 @@ namespace Personal.WebApi
         protected void Application_Start(object sender, EventArgs e)
         {
             var container = new UnityContainer();
-            container.RegisterType<InMemoryHrContext>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IHrContext, InMemoryHrContext>(new ContainerControlledLifetimeManager());
             GlobalConfiguration.Configuration.DependencyResolver = new UnityResolver(container);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
