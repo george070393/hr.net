@@ -12,7 +12,7 @@ namespace Personal.Persistence
     /// Copied from https://msdn.microsoft.com/en-us/data/dn314431.aspx
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    internal class InMemoryDbSet<TEntity> : DbSet<TEntity>, IQueryable, IEnumerable<TEntity>, IDbAsyncEnumerable<TEntity>
+    public class InMemoryDbSet<TEntity> : DbSet<TEntity>, IQueryable, IEnumerable<TEntity>, IDbAsyncEnumerable<TEntity>
         where TEntity : class
     {
         private readonly ObservableCollection<TEntity> data;
@@ -30,7 +30,7 @@ namespace Personal.Persistence
             return item;
         }
 
-        public override TEntity Remove(TEntity item)
+       public override TEntity Remove(TEntity item)
         {
             data.Remove(item);
             return item;
