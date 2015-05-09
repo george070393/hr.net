@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 using AutoMapper;
 using Personal.Entities;
 using Personal.Persistence;
@@ -15,44 +16,56 @@ namespace Personal.WebApi.Controller
 
         private readonly IHrContext context;
 
-            public DepartmentsController(IHrContext context)
-            {
-                this.context = context;
-            
-            }
+        public DepartmentsController(IHrContext context)
+        {
+            this.context = context;
+
+        }
         // GET: api/Departments
-            public IEnumerable<Department> Get()
-            {
-                return context.Departments;
-            }
+        public IEnumerable<Department> Get()
+        {
+            return context.Departments;
+        }
 
         // GET: api/Departments/5
-            public IHttpActionResult Get(string id)
+        public IHttpActionResult Get(string id)
+        {
+            var departmentDB = context.Departments.Find(id);
+            if (departmentDB != null)
             {
-                var departmentDB = context.Departments.Find(id);
-                if (departmentDB != null)
-                {
-                    return Ok(departmentDB);
-                }
-                return NotFound();
+                return Ok(departmentDB);
             }
+            return NotFound();
+        }
 
 
         // POST: api/Departments
-            public IHttpActionResult Post(Department department)
+        public IHttpActionResult Post(Department department)
+        {
+            if (ModelState.IsValid)
             {
-                var addeddepartment = context.Departments.Add(department);
-
-                return CreatedAtRoute("DefaultApi", new { controller = "Departments", id = addeddepartment.DepartmentId }, addeddepartment);
-
-            }
-
-        // PUT: api/Departments/5
-            public IHttpActionResult Put(Department department)
-            {
-                if (ModelState.IsValid)
+                if (context.Locations.Contains(department.Location))
                 {
 
+                    var addeddepartment = context.Departments.Add(department);
+
+                    return CreatedAtRoute("DefaultApi",
+                        new { controller = "Departments", id = addeddepartment.DepartmentId }, addeddepartment);
+                }
+                return BadRequest("Locatia nu exista!");
+
+            }
+            return BadRequest();
+
+        }
+
+        // PUT: api/Departments/5
+        public IHttpActionResult Put(Department department)
+        {
+            if (ModelState.IsValid)
+            {
+                if (context.Locations.Contains(department.Location))
+                {
 
                     var dbdepartment = context.Departments.Find(department.DepartmentId);
                     if (dbdepartment != null)
@@ -63,18 +76,21 @@ namespace Personal.WebApi.Controller
                     }
                     return NotFound();
                 }
-                return BadRequest();
+                return BadRequest("Locatia nu exista!");
+
             }
+            return BadRequest();
+        }
 
         // DELETE: api/Departments/5
-            public IHttpActionResult Delete(string id)
+        public IHttpActionResult Delete(string id)
+        {
+            var dbdepartment = context.Departments.Find(id);
+            if (dbdepartment != null)
             {
-                var dbdepartment = context.Departments.Find(id);
-                if (dbdepartment != null)
-                {
-                    return Ok(context.Departments.Remove(dbdepartment));
-                }
-                return NotFound();
+                return Ok(context.Departments.Remove(dbdepartment));
             }
+            return NotFound();
+        }
     }
 }

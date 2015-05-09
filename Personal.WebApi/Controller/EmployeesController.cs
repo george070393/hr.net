@@ -41,10 +41,29 @@ namespace Personal.WebApi.Controller
         // POST: api/Employees
         public IHttpActionResult Post(Employee employee)
         {
-            var addedemployee = context.Employees.Add(employee);
+            if (ModelState.IsValid)
+            {
+                if (context.Jobs.Contains(employee.Job))
+                {
+                    if (context.Employees.Contains(employee.Manager))
+                    {
+                        if (context.Departments.Contains(employee.Department))
+                        {
+                            var addedemployee = context.Employees.Add(employee);
 
-            return CreatedAtRoute("DefaultApi", new { controller = "Employees", id = addedemployee.EmployeeId }, addedemployee);
+                            return CreatedAtRoute("DefaultApi", new { controller = "Employees", id = addedemployee.EmployeeId }, addedemployee);
 
+                        }
+                        return BadRequest("Departamentul nu exista!");
+                    }
+                    return BadRequest("Managerul nu exista!");
+                }
+                return BadRequest("Jobul nu exista!");
+
+
+            }
+            return BadRequest();
+            
         }
 
 
@@ -53,16 +72,28 @@ namespace Personal.WebApi.Controller
         {
             if (ModelState.IsValid)
             {
-
-
-                var dbemployee = context.Employees.Find(employee.EmployeeId);
-                if (dbemployee != null)
+                if (context.Jobs.Contains(employee.Job))
                 {
-                    Mapper.Map(employee, dbemployee);
+                    if (context.Employees.Contains(employee.Manager))
+                    {
+                        if (context.Departments.Contains(employee.Department))
+                        {
+                            var dbemployee = context.Employees.Find(employee.EmployeeId);
+                            if (dbemployee != null)
+                            {
+                                Mapper.Map(employee, dbemployee);
 
-                    return Ok(context.SaveChanges());
+                                return Ok(context.SaveChanges());
+                            }
+                            return NotFound();
+                        }
+                        return BadRequest("Departamentul nu exista!");
+                    }
+                    return BadRequest("Managerul nu exista!");
                 }
-                return NotFound();
+                return BadRequest("Jobul nu exista!");
+
+               
             }
             return BadRequest();
         }
