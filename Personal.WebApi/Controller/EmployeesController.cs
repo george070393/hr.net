@@ -98,6 +98,123 @@ namespace Personal.WebApi.Controller
             return BadRequest();
         }
 
+        [HttpPut]
+        [Route("api/Employees/{id}/{newFirstName}")]
+        public IHttpActionResult ChangeName(string id, string newFirstName)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.FirstName = newFirstName;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newDepartment}")]
+        public IHttpActionResult ChangeDepartment(string id, Department newDepartment)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.Department = newDepartment;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newJob}")]
+        public IHttpActionResult ChangeJob(string id, Job newJob)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.Job = newJob;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newEmail}")]
+        public IHttpActionResult ChangeEmail(string id, string newEmail)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.Email = newEmail;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newPhoneNuber}")]
+        public IHttpActionResult ChangePhoneNumber(string id, string newPhoneNumber)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.PhoneNumber = newPhoneNumber;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newSalary}")]
+        public IHttpActionResult ModifySalary(string id, decimal newSalary)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.Salary = newSalary;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newManager}")]
+        public IHttpActionResult ChangeManager(string id, Employee newManager)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.Manager = newManager;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+        [HttpPut]
+        [Route("api/Employees/{id}/{newCommisionPercent}")]
+        public IHttpActionResult ModifyCommisionPercent(string id, decimal newCommisionPercent)
+        {
+            var dbemployee = context.Employees.Find(id);
+            if (dbemployee != null)
+            {
+                dbemployee.CommisionPercent = newCommisionPercent;
+                return Ok(context.SaveChanges());
+            }
+            return BadRequest();
+
+        }
+
+
+
+
+
+
         // DELETE: api/Employees/5
         public IHttpActionResult Delete(string id)
         {
